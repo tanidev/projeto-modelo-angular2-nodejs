@@ -4,4 +4,7 @@ module.exports = function(app) {
 
   app.route('/user')
           .post(userController.saveUser);
+
+  app.route('/user/signin')
+          .post(userController.signIn);
 };

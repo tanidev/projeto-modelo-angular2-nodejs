@@ -4,12 +4,12 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "ng serve",
+    "start": "ng build --prod --aot --sourcemap=false --environment=prod && node ./server/server.js",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
-    "build": "ng build && node ./server/server.js"
+    "build": "ng build --environment=dev --watch"
   },
   "private": true,
   "dependencies": {
@@ -21,11 +21,13 @@
     "@angular/platform-browser": "2.2.3",
     "@angular/platform-browser-dynamic": "2.2.3",
     "@angular/router": "3.2.3",
+    "angular-cli": "1.0.0-beta.22-1",
     "bcryptjs": "^2.4.0",
     "body-parser": "^1.15.2",
     "core-js": "^2.4.1",
     "express": "^4.14.0",
     "express-load": "^1.1.15",
+    "jsonwebtoken": "^7.2.1",
     "mongoose": "^4.7.2",
     "mongoose-unique-validator": "^1.0.3",
     "rxjs": "5.0.0-beta.12",
@@ -36,7 +38,6 @@
     "@angular/compiler-cli": "2.2.3",
     "@types/jasmine": "2.5.38",
     "@types/node": "^6.0.42",
-    "angular-cli": "1.0.0-beta.22-1",
     "codelyzer": "~2.0.0-beta.1",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",

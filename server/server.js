@@ -4,14 +4,17 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 const load = require('express-load');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const config = require('./config/config')
 
 // Get our API routes
 // const api = require('./server/routes/api');
 
 const app = express();
-
-mongoose.connect('localhost:27017/node-angular');
+console.log(config.mongo.urlConnection);
+mongoose.connect(config.mongo.urlConnection(
+  config.mongo.user, config.mongo.password, config.mongo.host, config.mongo.port, config.mongo.db
+));
 
 // Parsers for POST data
 app.use(bodyParser.json());
@@ -52,4 +55,4 @@ const server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port, () => console.log(`API running on localhost:${port}`));
+server.listen(port, () => console.log('App: [' + config.app.name + '] running on port: [' + config.app.port + ']'));
