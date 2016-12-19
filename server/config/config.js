@@ -30,7 +30,7 @@ var config = {
             user: "tani",
             password: "tanidev",
             host: "ds139438.mlab.com",
-            port: 27017,
+            port: 39438,
             db: "node-angular",
             urlConnection: function(user, password, host, port, db) {
                 return user + ':' + password + '@' + host + ':' + port + '/' + db; 
